@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -19,7 +17,6 @@ public class CarPane extends Application implements CarPaneFinals {
 	private Scene carScene;
 	private ArrayList<TextField> textFields;
 	private ArrayList<HBox>	hboxes;
-	private ArrayList<Label> labels;
 //	private TextField carIDTF;
 //	private HBox carIDBox;
 //	private Label carIDL;
@@ -65,33 +62,34 @@ public class CarPane extends Application implements CarPaneFinals {
 	}
 
 	private void enterFieldsToCenter(GridPane center) {
-		controlTFsize();
-	center.add(combine(carIDTF,carIDL), 10, 0);
+	control_TF_size();
+	center.add(combine(carIDTF,carIDL), 3, 0);
+	center.add(combine(statusCB,statusL),2,0);
 	center.add(combine(chassisTF,cahssisL), 9, 0);
-	center.add(combine(dayTF,dayL),2,0);
-	center.add(combine(monthTF,monthL),3,0);
-	center.add(combine(yearTF,yearL),4,0);	
+//	center.add(,2,1);
+	center.add(combine(combine(combine(dayTF,dayL),combine(monthTF,monthL)),combine(yearTF,yearL)),3,1);
+//	center.add(,4,1);	
 	
 }
 
-	private void controlTFsize() {
-		yearTF.setMaxWidth(50);
-		monthTF.setMaxWidth(30);
-		dayTF.setMaxWidth(30);
+	private void control_TF_size() {
+		yearTF.setMaxWidth(_4_5_CHARS_TF);
+		monthTF.setMaxWidth(_2CHARS_TF);
+		dayTF.setMaxWidth(_2CHARS_TF);
 	}
 
-	private HBox combine(TextField textField, Label label1) {
+	private HBox combine(Node textField, Node label1) {
 		HBox hb = new HBox();
 		hb.getChildren().addAll(textField,label1);
 		hb.setSpacing(5);
 		return hb;
 	}
 
-	private void createLists() {
-		textFields.addAll(Arrays.asList(tFields));
-		hboxes.addAll(Arrays.asList(boxes));
-	
-}
+//	private void createLists() {
+//		textFields.addAll(Arrays.asList(tFields));
+//		hboxes.addAll(Arrays.asList(boxes));
+//	
+//}
 
 	public static void main(String[] args) {
 		launch(args);

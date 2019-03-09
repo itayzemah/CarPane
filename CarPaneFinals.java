@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -23,13 +26,15 @@ public interface CarPaneFinals {
 	TextField dayTF = new TextField();
 	HBox dayBox = new HBox();
 	Label dayL = new Label("יום");
+	ObservableList<String> status = FXCollections.observableArrayList("נתניה", "הרצליה", "outlet");
+	ComboBox<String> statusCB = new ComboBox<>(status);
+	Label statusL = new Label("סטטוס");
 	ArrayList<TextField> textFields = new ArrayList<>();
 	ArrayList<HBox>	hboxes = new ArrayList<>();
 	ArrayList<Label> labels = new ArrayList<>();
 	TextField[] tFields = new TextField[] {carIDTF,dateTF, chassisTF,yearTF,monthTF,dayTF};
 	HBox[] boxes = new HBox[] {carIDBox,dateBox,chassisbox,yearBox,monthBox,dayBox};
-	enum labels 
-	{ 
-		מספר_רישוי, תאריך, שלדה, עליה_לכביש_שנה, חודש,יום; 
-	}
+	final double _4_5_CHARS_TF = 50;
+	final double _2CHARS_TF = 30;
+	
 }
